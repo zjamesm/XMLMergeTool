@@ -1,0 +1,30 @@
+import xml.etree as ET
+
+class Merger:
+    """
+    Generic class for merging files
+    """
+    
+    def __init__(self, file0, *args):
+        """Intializes the function
+
+        Args:
+            file0 (str): base file from which will be merged into
+        """
+        self._file0 = file0
+        self._tree0 = ET.parse(file0)
+        for val in range(1, len(args)):
+            setattr(Merger, "_file" + str(val), args[val])
+            setattr(Merger, "_tree" + str(val), ET.parse(args[val]))
+            
+    def do_merge(self, path_to_write_to, behavior = "default") -> None:
+        """_summary_
+
+        Args:
+            path_to_write_to (str): desired location to write to
+            behavior (str, optional): How items are merged. Defaults to "default".
+        """
+        
+        
+            
+    
